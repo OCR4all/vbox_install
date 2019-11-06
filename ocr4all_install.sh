@@ -41,7 +41,7 @@ echo "CATALINA_HOME=\"/usr/share/tomcat8\"" >> $ENVVAR
 
 # Install ocropy, make all ocropy scripts available to JAVA environment
         OCROPY_COMMIT="d1472da2dd28373cda4fcbdc84956d13ff75569c"
-        cd /opt && git clone -b master https://gitlab2.informatik.uni-wuerzburg.de/chr58bk/mptv.git ocro$
+        cd /opt && git clone -b master https://gitlab2.informatik.uni-wuerzburg.de/chr58bk/mptv.git ocropy
         cd ocropy && git reset --hard $OCROPY_COMMIT
         python2.7 setup.py install
         #cd /usr/local/bin
@@ -72,7 +72,7 @@ echo "CATALINA_HOME=\"/usr/share/tomcat8\"" >> $ENVVAR
         GTCWEB_VERSION="0.0.1-6"
         LAREX_VERSION="0.2.0"
         cd /var/lib/tomcat8/webapps
-        wget $ARTIFACTORY_URL/OCR4all_Web/$OCR4ALL_VERSION/OCR4all_Web-$OCR4ALL_VERSION.war -O OCR4all_W$
+        wget $ARTIFACTORY_URL/OCR4all_Web/$OCR4ALL_VERSION/OCR4all_Web-$OCR4ALL_VERSION.war -O OCR4all_Web.war
         wget $ARTIFACTORY_URL/GTC_Web/$GTCWEB_VERSION/GTC_Web-$GTCWEB_VERSION.war -O GTC_Web.war
         wget $ARTIFACTORY_URL/Larex/$LAREX_VERSION/Larex-$LAREX_VERSION.war -O Larex.war
 
