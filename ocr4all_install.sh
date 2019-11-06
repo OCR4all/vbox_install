@@ -33,7 +33,7 @@ echo "CATALINA_HOME=\"/usr/share/tomcat8\"" >> $ENVVAR
 # Make pretrained CALAMARI models available to the project environment
 ## Update to future calamari version v1.x.x will require new models
         CALAMARI_MODELS_VERSION="0.3"
-        wget https://github.com/OCR4all/ocr4all_models/archive/${CALAMARI_MODELS_VERSION}.tar.gz -O /opt$
+        wget https://github.com/OCR4all/ocr4all_models/archive/${CALAMARI_MODELS_VERSION}.tar.gz -O /opt
         mkdir -p /opt/ocr4all_models/ 
         tar -xvzf /opt/ocr4all_models.tar.gz -C /opt/ocr4all_models/ --strip-components=1
         rm /opt/ocr4all_models.tar.gz
