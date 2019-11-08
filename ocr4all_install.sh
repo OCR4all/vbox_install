@@ -18,8 +18,8 @@ echo "CATALINA_HOME=\"/usr/share/tomcat8\"" >> $ENVVAR
 
 
 #Force Tomcat to use Java 8
-        #rm /usr/lib/jvm/default-java && \
-        #ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64 /usr/lib/jvm/default-java && \
+        rm /usr/lib/jvm/default-java && \
+        ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64 /usr/lib/jvm/default-java && \
         update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
 # Create ocr4all directories and grant tomcat permissions
