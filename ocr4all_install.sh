@@ -2,7 +2,7 @@
 
 # Install dependencies system-wide and delete cache, removed supervisor docker dependency
 apt-get update
-apt get install -y locales git wget openjdk-8-jdk-headless tomcat8 python2.7 python3-pip python3-pil maven python-tk python-pip
+apt-get install -y locales git wget openjdk-8-jdk-headless tomcat8 python2.7 python3-pip python3-pil maven python-tk python-pip
 
 pip install scikit-image numpy matplotlib scipy lxml
 pip3 install lxml setuptools
