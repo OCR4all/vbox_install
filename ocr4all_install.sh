@@ -17,6 +17,8 @@ echo "LC_ALL=\"en_US.UTF-8\"" >> $ENVVAR
 echo "CATALINA_HOME=\"/usr/share/tomcat8\"" >> $ENVVAR
 source /etc/environment.txt
 
+ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/libs-snapshot/de/uniwue
+
 #Force Tomcat to use Java 8
         rm /usr/lib/jvm/default-java && \
         ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64 /usr/lib/jvm/default-java && \
@@ -92,9 +94,11 @@ source /etc/environment.txt
 #cp supervisord.conf /etc/supervisor/conf.d
 
 # Create index.html for calling url without tool url part!
-cp index.html /usr/share/tomcat8/webapps/ROOT/index.html
+git clone https://github.com/OCR4all/docker_image
+cp ./docker_image/index.html /var/lib/tomcat8/webapps/ROOT/index.html
 
 # Copy larex.config
-cp larex.config /larex.config
+cp ./docker_image/larex.config /larex.config
+rm -rf ./docker_image/
 
 echo "LAREX_CONFIG=\"/larex.config\"" >> $ENVVAR
