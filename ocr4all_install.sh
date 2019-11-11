@@ -84,9 +84,9 @@ ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/l
 #        ln -s /var/lib/tomcat8/server $CATALINA_HOME/server
 #        ln -s /var/lib/tomcat8/shared $CATALINA_HOME/shared
 #        ln -s /etc/tomcat8 $CATALINA_HOME/conf
-#        mkdir $CATALINA_HOME/temp
+        mkdir $CATALINA_HOME/temp
 #        mkdir $CATALINA_HOME/webapps
-#        mkdir $CATALINA_HOME/logs
+        mkdir $CATALINA_HOME/logs
 #        ln -s /var/lib/tomcat8/webapps/OCR4all_Web.war $CATALINA_HOME/webapps
 #        ln -s /var/lib/tomcat8/webapps/GTC_Web.war $CATALINA_HOME/webapps
 #       ln -s /var/lib/tomcat8/webapps/Larex.war $CATALINA_HOME/webapps
