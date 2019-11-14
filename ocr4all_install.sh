@@ -46,23 +46,14 @@ ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/l
         cd /opt && git clone -b master https://gitlab2.informatik.uni-wuerzburg.de/chr58bk/mptv.git ocropy
         cd ocropy && git reset --hard $OCROPY_COMMIT
         python2.7 setup.py install
-        #cd /usr/local/bin
-        #OCR_SCRIPT_LIST='ls ocropus-*'
-        #for OCR_SCRIPT in $OCR_SCRIPT_LIST; \
-        #       do ln -s /usr/local/bin/$OCR_SCRIPT /bin/$OCR_SCRIPT; \
-        #done
-
+        
 # Install calamari, make all calamari scripts available to JAVA environment
 ## calamari from source with version: v0.x.x
         CALAMARI_COMMIT="ac4801e28e45149b51797508fae6cad49e46c82e"
         cd /opt && git clone -b calamari-0.3 https://github.com/Calamari-OCR/calamari.git
         cd calamari && git reset --hard $CALAMARI_COMMIT
         python3 setup.py install
-        #cd /usr/local/bin
-        #CALAMARI_SCRIPT_LIST='ls calamari-*'
-        #for CALAMARI_SCRIPT in $CALAMARI_SCRIPT_LIST; \
-        #       do ln -s /usr/local/bin/$CALAMARI_SCRIPT /bin/$CALAMARI_SCRIPT; \
-        #done
+        
 # Install helper scripts to make all scripts available to JAVA environment
         HELPER_SCRIPTS_COMMIT="3e82d303d494a8de2208baf4c0044cdd268ac7dd"
         cd /opt && git clone -b master https://github.com/OCR4all/OCR4all_helper-scripts.git
@@ -80,6 +71,7 @@ ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/l
 
         mkdir $CATALINA_HOME/temp
         mkdir $CATALINA_HOME/logs
+        
 # Create index.html for calling url without tool url part!
         git clone https://github.com/OCR4all/docker_image
         cp ./docker_image/index.html /var/lib/tomcat8/webapps/ROOT/index.html
