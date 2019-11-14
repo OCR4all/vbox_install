@@ -78,28 +78,16 @@ ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/l
         wget $ARTIFACTORY_URL/GTC_Web/$GTCWEB_VERSION/GTC_Web-$GTCWEB_VERSION.war -O GTC_Web.war
         wget $ARTIFACTORY_URL/Larex/$LAREX_VERSION/Larex-$LAREX_VERSION.war -O Larex.war
 
-#Removed Artfiacts from Docker. TODO: y?
-# Add webapps to tomcat
-#        ln -s /var/lib/tomcat8/common $CATALINA_HOME/common
-#        ln -s /var/lib/tomcat8/server $CATALINA_HOME/server
-#        ln -s /var/lib/tomcat8/shared $CATALINA_HOME/shared
-#        ln -s /etc/tomcat8 $CATALINA_HOME/conf
         mkdir $CATALINA_HOME/temp
-#        mkdir $CATALINA_HOME/webapps
         mkdir $CATALINA_HOME/logs
-#        ln -s /var/lib/tomcat8/webapps/OCR4all_Web.war $CATALINA_HOME/webapps
-#        ln -s /var/lib/tomcat8/webapps/GTC_Web.war $CATALINA_HOME/webapps
-#       ln -s /var/lib/tomcat8/webapps/Larex.war $CATALINA_HOME/webapps
-
-# Put supervisor process manager configuration to container Docker artifact
-#cp supervisord.conf /etc/supervisor/conf.d
-
 # Create index.html for calling url without tool url part!
-git clone https://github.com/OCR4all/docker_image
-cp ./docker_image/index.html /var/lib/tomcat8/webapps/ROOT/index.html
+        git clone https://github.com/OCR4all/docker_image
+        cp ./docker_image/index.html /var/lib/tomcat8/webapps/ROOT/index.html
 
 # Copy larex.config
-cp ./docker_image/larex.config /larex.config
-rm -rf ./docker_image/
+        cp ./docker_image/larex.config /larex.config
+        rm -rf ./docker_image/
 
-echo "LAREX_CONFIG=\"/larex.config\"" >> $ENVVAR
+#Enable calamari and ocropus scripts in tomcat 
+        echo "PATH=$PATH:/usr/local/bin" >> /etc/default/tomcat8
+        echo "LAREX_CONFIG=/larex.config" >> /etc/default/tomcat8
