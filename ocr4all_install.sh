@@ -5,7 +5,8 @@ apt-get update
 apt-get install -y locales git wget openjdk-8-jdk-headless tomcat8 python2.7 python3-pip python3-pil maven python-tk python-pip
 
 pip install scikit-image numpy matplotlib scipy lxml
-pip3 install lxml setuptools tensorflow=1.14
+pip3 install lxml setuptools
+pip3 install --upgrade tensorflow
 rm -rf /var/lib/apt/lists/*
 
 #Set the locale, to solve Tomcat issues with Ubuntu
