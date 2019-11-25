@@ -49,7 +49,7 @@ ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/l
         
 # Install calamari, make all calamari scripts available to JAVA environment
 ## calamari from source with version: v0.x.x
-        CALAMARI_COMMIT="ac4801e28e45149b51797508fae6cad49e46c82e"
+        CALAMARI_COMMIT="6433677ae773e0af8d53606c166726832809996b"
         cd /opt && git clone -b calamari-0.3 https://github.com/Calamari-OCR/calamari.git
         cd calamari && git reset --hard $CALAMARI_COMMIT
         python3 setup.py install
@@ -63,7 +63,7 @@ ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/l
 # Download maven project
         OCR4ALL_VERSION="0.1.2-4"
         GTCWEB_VERSION="0.0.1-6"
-        LAREX_VERSION="0.2.0"
+        LAREX_VERSION="0.2.1"
         cd /var/lib/tomcat8/webapps
         wget $ARTIFACTORY_URL/OCR4all_Web/$OCR4ALL_VERSION/OCR4all_Web-$OCR4ALL_VERSION.war -O OCR4all_Web.war
         wget $ARTIFACTORY_URL/GTC_Web/$GTCWEB_VERSION/GTC_Web-$GTCWEB_VERSION.war -O GTC_Web.war
