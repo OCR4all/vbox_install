@@ -5,8 +5,9 @@ apt-get update
 apt-get install -y locales git wget openjdk-8-jdk-headless tomcat8 python2.7 python3-pip python3-pil maven python-tk python-pip
 
 pip install scikit-image numpy matplotlib scipy lxml
-pip3 install lxml setuptools
-pip3 install --upgrade tensorflow
+pip3 install --upgrade pip
+pip3 install lxml setuptools==41.0.0
+pip3 install --upgrade tensorflow==2.1.0
 rm -rf /var/lib/apt/lists/*
 
 #Set the locale, to solve Tomcat issues with Ubuntu
@@ -35,12 +36,12 @@ ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/l
 
 # Make pretrained CALAMARI models available to the project environment
 ## Update to future calamari version v1.x.x will require new models
-        CALAMARI_MODELS_VERSION="0.3"
-        wget https://github.com/OCR4all/ocr4all_models/archive/$CALAMARI_MODELS_VERSION.tar.gz -O /opt
-        mkdir -p /opt/ocr4all_models/ 
-        tar -xvzf /opt/ocr4all_models.tar.gz -C /opt/ocr4all_models/ --strip-components=1
-        rm /opt/ocr4all_models.tar.gz
-        ln -s /opt/ocr4all_models/default /var/ocr4all/models/default;
+        CALAMARI_MODELS_VERSION="1.0"
+        wget https://github.com/OCR4all/ocr4all_models/archive/${CALAMARI_MODELS_VERSION}.tar.gz -O /opt/ocr4all_models.tar.gz && \
+        mkdir -p /opt/ocr4all_models/ && \
+        tar -xvzf /opt/ocr4all_models.tar.gz -C /opt/ocr4all_models/ --strip-components=1 && \
+        rm /opt/ocr4all_models.tar.gz && \
+        ln -s /opt/ocr4all_models/default /var/ocr4all/models/default/default;
 
 # Install ocropy, make all ocropy scripts available to JAVA environment
         OCROPY_COMMIT="d1472da2dd28373cda4fcbdc84956d13ff75569c"
@@ -50,24 +51,22 @@ ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/l
         
 # Install calamari, make all calamari scripts available to JAVA environment
 ## calamari from source with version: v0.x.x
-        CALAMARI_COMMIT="6433677ae773e0af8d53606c166726832809996b"
-        cd /opt && git clone -b calamari-0.3 https://github.com/Calamari-OCR/calamari.git
+        CALAMARI_COMMIT="d293871c40c105f38e5528944fc39f04eb7649a7"
+        cd /opt && git clone -b feature/pageXML_word_level https://github.com/maxnth/calamari.git
         cd calamari && git reset --hard $CALAMARI_COMMIT
         python3 setup.py install
         
 # Install helper scripts to make all scripts available to JAVA environment
-        HELPER_SCRIPTS_COMMIT="3e82d303d494a8de2208baf4c0044cdd268ac7dd"
+        HELPER_SCRIPTS_COMMIT="6ecee08747c301216c7a6da54a328fdacdb4a5fe"
         cd /opt && git clone -b master https://github.com/OCR4all/OCR4all_helper-scripts.git
         cd OCR4all_helper-scripts && git reset --hard $HELPER_SCRIPTS_COMMIT
         python3 setup.py install
 
 # Download maven project
-        OCR4ALL_VERSION="0.1.2-4"
-        GTCWEB_VERSION="0.0.1-6"
-        LAREX_VERSION="0.2.1"
+        OCR4ALL_VERSION="0.3.0"
+        LAREX_VERSION="0.3.1"
         cd /var/lib/tomcat8/webapps
-        wget $ARTIFACTORY_URL/OCR4all_Web/$OCR4ALL_VERSION/OCR4all_Web-$OCR4ALL_VERSION.war -O OCR4all_Web.war
-        wget $ARTIFACTORY_URL/GTC_Web/$GTCWEB_VERSION/GTC_Web-$GTCWEB_VERSION.war -O GTC_Web.war
+        wget $ARTIFACTORY_URL/OCR4all_Web/$OCR4ALL_VERSION/OCR4all_Web-$OCR4ALL_VERSION.war -O ocr4all.war
         wget $ARTIFACTORY_URL/Larex/$LAREX_VERSION/Larex-$LAREX_VERSION.war -O Larex.war
 
         mkdir $CATALINA_HOME/temp
