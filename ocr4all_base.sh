@@ -1,18 +1,26 @@
 #!/bin/bash
 
-apt-get update
-apt-get install 
+set -e
+
 
 # Installing dependencies and deleting cache
-apt-get update && apt-get install -y \
-    locales \
-    git \
-    maven \
-    tomcat8 \
-    openjdk-8-jdk-headless \
-    python python-pip python3 python3-pip python3-pil python-tk \
-    wget \
-    supervisor && \
+apt-get update
+apt-get upgrade
+apt-get install -y \
+locales \
+git \
+maven \
+tomcat8 \
+openjdk-8-jdk-headless \
+python \
+python-pip \
+python3 \
+python3-pip \
+python3-pil \
+python-tk \
+wget \
+supervisor
+
     
 # Installing python dependencies    
 rm -rf /var/lib/apt/lists/*
@@ -30,6 +38,7 @@ echo "LANGUAGE=\"en_US:en\"" >> $ENVVAR
 echo "LC_ALL=\"en_US.UTF-8\"" >> $ENVVAR
 echo "CATALINA_HOME=\"/usr/share/tomcat8\"" >> $ENVVAR
 source /etc/environment.txt
+
 
 #Force Tomcat to use Java 8
 rm /usr/lib/jvm/default-java && \
