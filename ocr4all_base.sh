@@ -39,6 +39,7 @@ echo "LC_ALL=\"en_US.UTF-8\"" >> $ENVVAR
 echo "CATALINA_HOME=\"/usr/share/tomcat8\"" >> $ENVVAR
 source /etc/environment.txt
 
+adduser tomcat8 vboxsf
 
 #Force Tomcat to use Java 8
 rm /usr/lib/jvm/default-java && \
