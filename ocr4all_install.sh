@@ -46,8 +46,8 @@ python3 setup.py install
 
         
 # Download maven project
-OCR4ALL_VERSION="0.3.0"
-LAREX_VERSION="0.3.1"
+OCR4ALL_VERSION="0.4.0"
+LAREX_VERSION="0.4-RC1"
 cd /var/lib/tomcat8/webapps
 wget $ARTIFACTORY_URL/OCR4all_Web/$OCR4ALL_VERSION/OCR4all_Web-$OCR4ALL_VERSION.war -O ocr4all.war
 wget $ARTIFACTORY_URL/Larex/$LAREX_VERSION/Larex-$LAREX_VERSION.war -O Larex.war
@@ -69,3 +69,6 @@ rm -rf ./docker_image/
 #Enable calamari and ocropus scripts in tomcat 
 echo "PATH=$PATH:/usr/local/bin" >> /etc/default/tomcat8
 echo "LAREX_CONFIG=/larex.config" >> /etc/default/tomcat8
+
+service supervisor enable
+service supervisor start

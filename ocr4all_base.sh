@@ -19,7 +19,9 @@ python3-pip \
 python3-pil \
 python-tk \
 wget \
-supervisor
+build-essential \
+dkms \
+linux-headers-$(uname -r) 
 
     
 # Installing python dependencies    
@@ -44,3 +46,11 @@ source /etc/environment.txt
 rm /usr/lib/jvm/default-java && \
 ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64 /usr/lib/jvm/default-java && \
 update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+
+usermod -a -G vboxsf tomcat8
+mkdir -p /mnt/cdrom
+mount /dev/cdrom /mnt/cdrom
+cd /mnt/cdrom
+sudo sh ./VBoxLinuxAdditions.run --nox11
+sudo shutdown -r now
+lsmod | grep vboxguest
