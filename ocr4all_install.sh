@@ -3,6 +3,7 @@
 set -e
 ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/libs-snapshot/de/uniwue
 
+usermod -a -G vboxsf tomcat8
 
 # Create ocr4all directories and grant tomcat permissions
 mkdir -p /var/ocr4all/data \
@@ -20,7 +21,7 @@ wget https://github.com/OCR4all/ocr4all_models/archive/${CALAMARI_MODELS_VERSION
 mkdir -p /opt/ocr4all_models/ && \
 tar -xvzf /opt/ocr4all_models.tar.gz -C /opt/ocr4all_models/ --strip-components=1 && \
 rm /opt/ocr4all_models.tar.gz && \
-ln -s /opt/ocr4all_models/default /var/ocr4all/models/default/default
+ln -s /opt/ocr4all_models/default /var/ocr4all/models/default
 
         
 # Install ocropy, make all ocropy scripts available to JAVA environment
