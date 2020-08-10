@@ -54,4 +54,3 @@ mount /dev/cdrom /mnt/cdrom
 cd /mnt/cdrom
 sudo sh ./VBoxLinuxAdditions.run --nox11
 sudo shutdown -r now
-lsmod | grep vboxguest
