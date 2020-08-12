@@ -50,7 +50,7 @@ python3 setup.py install
 OCR4ALL_VERSION="0.4.0"
 LAREX_VERSION="0.4-RC1"
 cd /var/lib/tomcat8/webapps
-wget $ARTIFACTORY_URL/OCR4all_Web/$OCR4ALL_VERSION/OCR4all_Web-$OCR4ALL_VERSION.war -O ocr4all.war
+wget $ARTIFACTORY_URL/ocr4all/$OCR4ALL_VERSION/ocr4all-$OCR4ALL_VERSION.war -O ocr4all.war
 wget $ARTIFACTORY_URL/Larex/$LAREX_VERSION/Larex-$LAREX_VERSION.war -O Larex.war
 
 mkdir $CATALINA_HOME/temp
