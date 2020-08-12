@@ -21,7 +21,8 @@ python-tk \
 wget \
 build-essential \
 dkms \
-linux-headers-$(uname -r) 
+linux-headers-$(uname -r) \
+supervisor
 
     
 # Installing python dependencies    
