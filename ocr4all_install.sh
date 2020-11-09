@@ -40,15 +40,15 @@ python3 setup.py install
         
         
 # Install helper scripts to make all scripts available to JAVA environment
-HELPER_SCRIPTS_COMMIT="6ecee08747c301216c7a6da54a328fdacdb4a5fe"
+HELPER_SCRIPTS_COMMIT="7e9705ba44f4e4e49c49631ed4961abf2f95f699"
 cd /opt && git clone -b master https://github.com/OCR4all/OCR4all_helper-scripts.git
 cd OCR4all_helper-scripts && git reset --hard $HELPER_SCRIPTS_COMMIT
 python3 setup.py install
 
         
 # Download maven project
-OCR4ALL_VERSION="0.4.0"
-LAREX_VERSION="0.4-RC1"
+OCR4ALL_VERSION="0.5.0"
+LAREX_VERSION="0.5.0"
 cd /var/lib/tomcat8/webapps
 wget $ARTIFACTORY_URL/ocr4all/$OCR4ALL_VERSION/ocr4all-$OCR4ALL_VERSION.war -O ocr4all.war
 wget $ARTIFACTORY_URL/Larex/$LAREX_VERSION/Larex-$LAREX_VERSION.war -O Larex.war
