@@ -1,15 +1,5 @@
 #!/bin/bash
-BASE_DIR="/home/$USER/ocr4all"
-
-if [! groups $USER | grep -q '\bvboxsf\b']
-then
-  usermod -a -G vboxsf $USER
-fi
-
-if [! -d ${BASE_DIR}]
-then
-  mkdir -p ${BASE_DIR}
-fi
+BASE_DIR="/home/ocr4all/ocr4all"
 
 docker run \
     -p 8080:8080 \
