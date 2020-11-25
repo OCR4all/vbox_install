@@ -42,5 +42,14 @@ mount /dev/cdrom /mnt/cdrom
 cd /mnt/cdrom
 sh ./VBoxLinuxAdditions.run --nox11
 
+# Enable auto login
+echo -e "[Service]\nExecStart=\nExecStart=-/sbin/agetty --autologin ${USER} --noclear %I $TERM\nType=idle" | tee /etc/systemd/system/getty@tty1.service.d/override.conf
+
+# Hide Ubuntu Server MOTD
+touch ~/.hushlogin
+
+# Hide cloud-init message output
+touch /etc/cloud/cloud-init.disabled
+
 echo -n "Rebooting in 5s…"
 sleep 5 ; reboot
