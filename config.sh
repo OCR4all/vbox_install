@@ -7,10 +7,10 @@ fi
 echo "[Service]\nExecStart=\nExecStart=-/sbin/agetty --autologin ocr4all --noclear %I $TERM\nType=idle" | tee /etc/systemd/system/getty@tty1.service.d/override.conf
 
 # Hide Ubuntu Server MOTD
-touch ~/.hushlogin
+echo >> ~/.hushlogin
 
 # Hide cloud-init message output
-touch /etc/cloud/cloud-init.disabled
+echo >> /etc/cloud/cloud-init.disabled
 
 usermod -a -G vboxsf ocr4all
 
