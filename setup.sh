@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update -y
-apt upgrade - y
+apt upgrade -y
 
 # Install docker (see: https://docs.docker.com/engine/install/ubuntu/)
 echo -n "Installing Docker…"
