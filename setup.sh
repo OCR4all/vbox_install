@@ -28,7 +28,7 @@ apt install -y \
     containerd.io
 
 groupadd docker
-usermod -aG docker $USER
+usermod -aG docker ocr4all
 
 # Install guest additions
 echo -n "Installing Guest Additions…"
@@ -41,19 +41,6 @@ mkdir -p /mnt/cdrom
 mount /dev/cdrom /mnt/cdrom
 cd /mnt/cdrom
 sh ./VBoxLinuxAdditions.run --nox11
-
-# Enable auto login
-if [! -d "/etc/systemd/system/getty@tty1.service.d"]
-then
-  mkdir -p "/etc/systemd/system/getty@tty1.service.d"}
-fi
-echo -e "[Service]\nExecStart=\nExecStart=-/sbin/agetty --autologin ${USER} --noclear %I $TERM\nType=idle" | tee /etc/systemd/system/getty@tty1.service.d/override.conf
-
-# Hide Ubuntu Server MOTD
-touch ~/.hushlogin
-
-# Hide cloud-init message output
-touch /etc/cloud/cloud-init.disabled
 
 echo -n "Rebooting in 5s…"
 sleep 5 ; reboot
