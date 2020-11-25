@@ -12,9 +12,9 @@ touch ~/.hushlogin
 # Hide cloud-init message output
 touch /etc/cloud/cloud-init.disabled
 
-if [ ! groups $USER | grep -q '\bvboxsf\b' ]
+if [ ! groups ocr4all | grep -q '\bvboxsf\b' ]
 then
-  usermod -a -G vboxsf $USER
+  usermod -a -G vboxsf ocr4all
 fi
 
 BASE_DIR="/home/ocr4all/ocr4all"
