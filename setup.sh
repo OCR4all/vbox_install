@@ -26,10 +26,7 @@ sh ./VBoxLinuxAdditions.run --nox11
 cp ./startup_script.sh /usr/local/bin/startup_script.sh
 chmod a+x /usr/local/bin/startup_script.sh
 
-mkdir -p /home/ocr4all/.local/share/systemd/user
-cp ./startup_info.service /home/ocr4all/.local/share/systemd/user/.
-
-systemctl --user enable startup_info.service
+echo "sh /usr/local/bin/startup_script.sh" >> /home/ocr4all/.bashrc
 
 echo -n "Rebooting in 5s…"
 sleep 5 ; reboot
