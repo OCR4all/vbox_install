@@ -23,7 +23,7 @@ cd /mnt/cdrom
 sh ./VBoxLinuxAdditions.run --nox11
 
 # Init information script service
-cp ./startup_script.sh /home/ocr4all/.
+cp /home/ocr4all/vbox_install/startup_script.sh /home/ocr4all/.
 chmod a+x /home/ocr4all/startup_script.sh
 
 echo "sh /home/ocr4all/startup_script.sh" >> /home/ocr4all/.bashrc
