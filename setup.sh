@@ -5,7 +5,7 @@ apt upgrade -y
 # Install docker (see: https://docs.docker.com/engine/install/ubuntu/)
 echo -n "Installing Docker…"
 
-sudo apt install docker.io
+sudo apt install -y docker.io
 
 groupadd docker
 usermod -aG docker ocr4all
