@@ -1,5 +1,5 @@
 # vbox_install
-Shell scripts to run an OCR4all docker container inside of VirtualBox.
+Shell scripts to setup an OCR4all docker container inside of a VirtualBox.
 
 # Build guide
 * Start a fresh VirtualBox 
