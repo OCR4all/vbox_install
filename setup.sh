@@ -2,11 +2,12 @@
 apt update -y
 apt upgrade -y
 
-# Install docker (see: https://docs.docker.com/engine/install/ubuntu/)
+# Install docker
 echo -n "Installing Docker…"
 
 sudo apt install -y docker.io
 
+# Add ocr4all user to docker user group to manage docker without being root user
 groupadd docker
 usermod -aG docker ocr4all
 
