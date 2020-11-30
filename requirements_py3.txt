@@ -1,4 +1,0 @@
-lxml
-setuptools>=41.0.0
-tensorflow==2.1.2
-Pillow>=6.2.0

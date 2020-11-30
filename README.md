@@ -1,6 +1,12 @@
 # vbox_install
-Shell script for installing OCR4all in an 64bit ubuntu virtualBox image
+Shell scripts to run an OCR4all docker container inside of VirtualBox.
 
-## Folder mapping.
-1. Install Guest Additions (for this perl dkms build-essential and gcc may be needed to be installed).
-2. Add vboxsf group to tomcat8 user.
+# Build guide
+* Start a fresh VirtualBox 
+* Mount a `Ubuntu 20.04.1 LTS` ISO, complete the setup process (default user should be called `ocr4all`!)
+* After the installation is finished and you're logged in, clone this repistory
+* Inside the repository run the following scripts in this order
+  * `sudo sh setup.sh`
+  * `sudo sh config.sh`
+  * `sh run.sh`
+* Afterwards reboot one last time
